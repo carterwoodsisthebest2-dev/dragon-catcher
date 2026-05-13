@@ -1,0 +1,294 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #1a1a1a;
+  color: #fff;
+  overflow: hidden;
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Authentication */
+.auth-form {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  min-width: 350px;
+  text-align: center;
+}
+
+.auth-form h1 {
+  margin-bottom: 30px;
+  font-size: 2.5em;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.auth-form h2 {
+  margin-bottom: 20px;
+  font-size: 1.5em;
+}
+
+.auth-form input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 5px;
+  font-size: 1em;
+}
+
+.auth-form button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 15px;
+  background-color: #ff6b6b;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.auth-form button:hover {
+  background-color: #ee5a52;
+  transform: scale(1.05);
+}
+
+.auth-form a {
+  color: white;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.auth-form a:hover {
+  text-decoration: none;
+}
+
+/* Game */
+#game-container {
+  display: flex !important;
+  flex-direction: row;
+  gap: 20px;
+  padding: 20px;
+}
+
+#game-canvas-wrapper {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#game-canvas {
+  border: 3px solid #667eea;
+  background-color: #0a0a0a;
+  cursor: crosshair;
+  max-width: 800px;
+  max-height: 600px;
+  image-rendering: pixelated;
+}
+
+#ui-panel {
+  width: 300px;
+  background: rgba(0,0,0,0.7);
+  border: 2px solid #667eea;
+  border-radius: 10px;
+  padding: 20px;
+  overflow-y: auto;
+  max-height: 100vh;
+}
+
+#ui-panel h3 {
+  color: #667eea;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  border-bottom: 2px solid #667eea;
+  padding-bottom: 10px;
+}
+
+#ui-panel p {
+  margin: 5px 0;
+  font-size: 0.9em;
+}
+
+#team-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.team-dragon {
+  background: rgba(102, 126, 234, 0.2);
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #667eea;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.2s;
+  font-size: 0.85em;
+}
+
+.team-dragon:hover {
+  background: rgba(102, 126, 234, 0.4);
+  transform: scale(1.05);
+}
+
+#ui-panel button {
+  width: 100%;
+  padding: 10px;
+  background-color: #667eea;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: 0.3s;
+}
+
+#ui-panel button:hover {
+  background-color: #764ba2;
+  transform: scale(1.05);
+}
+
+/* Modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.8);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: #1a1a1a;
+  border: 2px solid #667eea;
+  border-radius: 10px;
+  padding: 30px;
+  max-width: 90%;
+  max-height: 90%;
+  overflow-y: auto;
+  position: relative;
+}
+
+.close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 2em;
+  cursor: pointer;
+  color: #667eea;
+  transition: 0.2s;
+}
+
+.close:hover {
+  color: #ff6b6b;
+  transform: scale(1.2);
+}
+
+#pokedex-search {
+  margin-bottom: 20px;
+}
+
+#pokedex-filter {
+  width: 100%;
+  padding: 10px;
+  background: #333;
+  border: 1px solid #667eea;
+  color: white;
+  border-radius: 5px;
+  font-size: 1em;
+}
+
+#pokedex-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.pokedex-entry {
+  background: rgba(102, 126, 234, 0.1);
+  border: 2px solid #667eea;
+  border-radius: 8px;
+  padding: 15px;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.pokedex-entry:hover {
+  background: rgba(102, 126, 234, 0.3);
+  transform: scale(1.05);
+}
+
+.pokedex-entry.caught {
+  border-color: #51cf66;
+  background: rgba(81, 207, 102, 0.1);
+}
+
+.pokedex-entry.mythic {
+  border-color: #ff6b9d;
+  background: rgba(255, 107, 157, 0.1);
+}
+
+.pokedex-entry.legendary {
+  border-color: #ffd700;
+  background: rgba(255, 215, 0, 0.1);
+}
+
+.pokedex-entry.rare {
+  border-color: #9d4edd;
+  background: rgba(157, 78, 221, 0.1);
+}
+
+.pokedex-entry.uncommon {
+  border-color: #4ecdc4;
+  background: rgba(78, 205, 196, 0.1);
+}
+
+.pokedex-entry.common {
+  border-color: #95e1d3;
+  background: rgba(149, 225, 211, 0.1);
+}
+
+.pokedex-entry-name {
+  font-weight: bold;
+  margin: 5px 0;
+}
+
+.pokedex-entry-rarity {
+  font-size: 0.8em;
+  color: #aaa;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  #game-container {
+    flex-direction: column;
+    height: auto;
+  }
+  
+  #ui-panel {
+    width: 100%;
+    max-height: 300px;
+  }
+}
